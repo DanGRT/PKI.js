@@ -3,8 +3,7 @@
 var _ = require('lodash');
 
 var _pkijs = {};
-var common = require("./org/asn1js/common");
-var commonpki = require("./org/pkijs/common");
+var common = require("./org/common");
 var asn1js = require("./org/asn1js/asn1");
 var _x509_schema = require("./org/pkijs/x509_schema");
 var _x509_simpl= require("./org/pkijs/x509_simpl");
@@ -29,7 +28,7 @@ _.merge(_cms_simpl, _cms_schema);
 _.merge(_pkcs12_simpl, _cms_simpl);
 _.merge(_pkcs12_simpl, _x509_simpl);
 
-_.merge(_pkijs, commonpki);
+_.merge(_pkijs, common);
 _.merge(_pkijs, _pkcs12);
 _.merge(_pkijs, _pkcs12_simpl);
 _.merge(_pkijs, asn1js);
