@@ -261,18 +261,12 @@ function(in_window)
     in_window.org.pkijs.getCrypto =
     function()
     {
-      var subtleObject;
-
-      // Apple Safari support
-      if("webkitSubtle" in window.crypto) {
-        subtleObject = window.crypto.webkitSubtle;
-      }
-
-      if("subtle" in window.crypto) {
-        subtleObject = window.crypto.subtle;
-      }
-
-      return subtleObject;
+      var crypto_temp;
+      
+      if(local.engine.subtle !== null)
+          crypto_temp = local.engine.subtle;
+      
+      return crypto_temp;
     }
     //**************************************************************************************
     in_window.org.pkijs.stringPrep =
